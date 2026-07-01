@@ -239,7 +239,7 @@ export default function Contacts({
             }}
             className={`flex items-center space-x-2 px-4 py-2.5 text-xs font-bold rounded-lg transition-all ${
               subTab === 'clientes' 
-                ? 'bg-white text-indigo-600 shadow-sm' 
+                ? 'bg-stok-dark text-stok-gold shadow-sm' 
                 : 'text-slate-600 hover:text-slate-800'
             }`}
           >
@@ -257,7 +257,7 @@ export default function Contacts({
             }}
             className={`flex items-center space-x-2 px-4 py-2.5 text-xs font-bold rounded-lg transition-all ${
               subTab === 'fornecedores' 
-                ? 'bg-white text-indigo-600 shadow-sm' 
+                ? 'bg-stok-dark text-stok-gold shadow-sm' 
                 : 'text-slate-600 hover:text-slate-800'
             }`}
           >
@@ -274,18 +274,18 @@ export default function Contacts({
             <button
               id="btn-add-client"
               onClick={handleOpenNovoCliente}
-              className="flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs px-4 py-2.5 rounded-lg transition-all"
+              className="flex items-center space-x-2 bg-stok-dark hover:bg-[#343e39] text-[#f4f6f5] border border-stok-gold/30 font-semibold text-xs px-4 py-2.5 rounded-lg transition-all shadow-sm"
             >
-              <Plus className="h-4 w-4" />
+              <Plus className="h-4 w-4 text-stok-gold" />
               <span>Novo Cliente</span>
             </button>
           ) : (
             <button
               id="btn-add-supplier"
               onClick={handleOpenNovoFornecedor}
-              className="flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs px-4 py-2.5 rounded-lg transition-all"
+              className="flex items-center space-x-2 bg-stok-dark hover:bg-[#343e39] text-[#f4f6f5] border border-stok-gold/30 font-semibold text-xs px-4 py-2.5 rounded-lg transition-all shadow-sm"
             >
-              <Plus className="h-4 w-4" />
+              <Plus className="h-4 w-4 text-stok-gold" />
               <span>Novo Fornecedor</span>
             </button>
           )}
@@ -304,7 +304,7 @@ export default function Contacts({
             placeholder={subTab === 'clientes' ? "Buscar clientes por nome, e-mail ou CPF/CNPJ..." : "Buscar fornecedores por empresa, CNPJ ou contato..."}
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+            className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-stok-gold/20 focus:border-stok-gold"
           />
         </div>
       </div>
@@ -320,7 +320,7 @@ export default function Contacts({
                   {/* Cabeçalho */}
                   <div className="p-5 border-b border-slate-100">
                     <div className="flex items-start justify-between">
-                      <div className="h-10 w-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm shrink-0">
+                      <div className="h-10 w-10 bg-stok-gold-light rounded-full flex items-center justify-center text-stok-gold border border-stok-gold/15 font-bold text-sm shrink-0">
                         {cli.nome.charAt(0).toUpperCase()}
                       </div>
                       <div className="flex items-center space-x-1.5">
@@ -376,7 +376,7 @@ export default function Contacts({
                     </div>
                     <div className="text-right">
                       <span className="text-[10px] text-slate-400 block uppercase font-semibold">Total Gasto</span>
-                      <span className="font-bold text-indigo-600 block mt-0.5">
+                      <span className="font-bold text-stok-gold block mt-0.5">
                         {formatBRL(info.totalGasto)}
                       </span>
                     </div>
@@ -398,7 +398,7 @@ export default function Contacts({
                   {/* Cabeçalho */}
                   <div className="p-5 border-b border-slate-100">
                     <div className="flex items-start justify-between">
-                      <div className="h-10 w-10 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 shrink-0">
+                      <div className="h-10 w-10 bg-stok-sage-light rounded-full flex items-center justify-center text-stok-sage border border-stok-sage/15 shrink-0">
                         <Truck className="h-5 w-5" />
                       </div>
                       <div className="flex items-center space-x-1.5">
@@ -458,7 +458,7 @@ export default function Contacts({
                     </div>
                     <div className="text-right">
                       <span className="text-[10px] text-slate-400 block uppercase font-semibold">Total Comprado</span>
-                      <span className="font-bold text-emerald-600 block mt-0.5">
+                      <span className="font-bold text-[#56645e] block mt-0.5">
                         {formatBRL(compraInfo.totalComprado)}
                       </span>
                     </div>
@@ -566,7 +566,7 @@ export default function Contacts({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs"
+                  className="px-4 py-2 text-xs font-semibold text-stok-dark bg-stok-gold hover:bg-stok-gold-hover rounded-lg shadow-xs"
                 >
                   {editMode ? 'Salvar Cliente' : 'Cadastrar Cliente'}
                 </button>
@@ -680,7 +680,7 @@ export default function Contacts({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs"
+                  className="px-4 py-2 text-xs font-semibold text-stok-dark bg-stok-gold hover:bg-stok-gold-hover rounded-lg shadow-xs"
                 >
                   {editMode ? 'Salvar Fornecedor' : 'Cadastrar Fornecedor'}
                 </button>

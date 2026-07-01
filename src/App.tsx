@@ -29,6 +29,36 @@ import {
   Bell
 } from 'lucide-react';
 
+export function StokLogo({ className = "w-8 h-8", strokeColor = "currentColor", strokeWidth = 2.5 }: { className?: string; strokeColor?: string; strokeWidth?: number }) {
+  return (
+    <svg 
+      viewBox="0 0 100 100" 
+      className={className}
+      fill="none" 
+      stroke={strokeColor} 
+      strokeWidth={strokeWidth} 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+      id="stok-logo-svg"
+    >
+      {/* Left outer wall */}
+      <path d="M 12,28 L 12,68 L 38,84" />
+      {/* Top-left flap pointing up-left */}
+      <path d="M 38,42 L 26,20 L 46,12 L 58,30 M 58,30 L 38,42" />
+      {/* Front-left vertical standing flap */}
+      <path d="M 22,40 L 22,84 L 38,84 M 38,42 L 38,84" />
+      {/* Bottom-right flap lying down flat (tray) */}
+      <path d="M 38,84 L 62,96 L 94,80 L 72,68" />
+      {/* Back-right vertical wall line */}
+      <path d="M 72,23 L 72,68" />
+      {/* Back-right flap standing up-right */}
+      <path d="M 72,23 L 88,13 L 88,61 L 72,68" />
+      {/* Inside perspective depth line */}
+      <path d="M 38,50 L 72,68" strokeWidth={strokeWidth * 0.8} opacity={0.7} />
+    </svg>
+  );
+}
+
 export default function App() {
   // Configuração inicial de Estado carregando do LocalStorage ou usando Mock
   const [produtos, setProdutos] = useState<Produto[]>(() => {
@@ -213,16 +243,17 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col">
       
       {/* Top Navigation Bar */}
-      <nav className="bg-white border-b border-slate-200 px-4 sm:px-6 shrink-0 sticky top-0 z-50">
+      <nav className="bg-stok-dark border-b border-stok-dark-light/50 px-4 sm:px-6 shrink-0 sticky top-0 z-50 text-white shadow-md">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 py-2 sm:py-0 sm:h-16">
           <div className="flex items-center justify-between sm:gap-8">
             {/* Logo */}
-            <div className="flex items-center gap-2.5 py-1">
-              <div className="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center shadow-md shadow-indigo-600/20">
-                <Boxes className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3.5 py-1">
+              <div className="w-10 h-10 bg-stok-dark border border-stok-gold/30 rounded flex items-center justify-center shadow-md shadow-black/25">
+                <StokLogo className="w-7 h-7" strokeColor="#9e8b75" strokeWidth={2.2} />
               </div>
               <div>
-                <span className="text-xl font-bold text-slate-800 tracking-tight block leading-none">StockMaster Pro</span>
+                <span className="text-2xl font-bold font-display tracking-[0.18em] text-[#f4f6f5] block leading-none">STOK</span>
+                <span className="text-[9px] text-[#9e8b75] font-display font-bold tracking-widest uppercase">Gestão de Estoque</span>
               </div>
             </div>
 
@@ -230,16 +261,16 @@ export default function App() {
             <div className="flex items-center gap-3 sm:hidden">
               <button
                 onClick={handleResetDados}
-                className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-50 transition-colors"
+                className="text-slate-300 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors"
                 title="Redefinir Dados"
               >
                 <RefreshCw className="h-4 w-4" />
               </button>
-              <div className="relative">
-                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-                <Bell className="w-5 h-5 text-slate-400" />
+              <div className="relative cursor-pointer">
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full border-2 border-stok-dark"></span>
+                <Bell className="w-5 h-5 text-slate-300 hover:text-white" />
               </div>
-              <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-xs font-semibold text-slate-600 border border-slate-200">
+              <div className="w-8 h-8 bg-stok-dark-light rounded-full flex items-center justify-center text-xs font-semibold text-[#f4f6f5] border border-stok-gold/25">
                 JD
               </div>
             </div>
@@ -252,8 +283,8 @@ export default function App() {
               onClick={() => setActiveTab('dashboard')}
               className={`font-semibold text-sm tracking-tight h-10 sm:h-16 flex items-center border-b-2 transition-all shrink-0 ${
                 activeTab === 'dashboard'
-                  ? 'text-indigo-600 border-indigo-600'
-                  : 'text-slate-500 hover:text-slate-800 border-transparent'
+                  ? 'text-stok-gold border-stok-gold font-bold'
+                  : 'text-slate-300 hover:text-[#f4f6f5] border-transparent'
               }`}
             >
               Dashboard
@@ -264,13 +295,13 @@ export default function App() {
               onClick={() => setActiveTab('estoque')}
               className={`font-semibold text-sm tracking-tight h-10 sm:h-16 flex items-center border-b-2 transition-all shrink-0 relative ${
                 activeTab === 'estoque'
-                  ? 'text-indigo-600 border-indigo-600'
-                  : 'text-slate-500 hover:text-slate-800 border-transparent'
+                  ? 'text-stok-gold border-stok-gold font-bold'
+                  : 'text-slate-300 hover:text-[#f4f6f5] border-transparent'
               }`}
             >
               Estoque
               {alertasEstoqueCount > 0 && (
-                <span className="ml-1.5 bg-amber-500 text-slate-900 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex items-center">
+                <span className="ml-1.5 bg-stok-gold text-stok-dark text-[9px] font-bold px-1.5 py-0.5 rounded-full flex items-center shadow-xs">
                   {alertasEstoqueCount}
                 </span>
               )}
@@ -281,8 +312,8 @@ export default function App() {
               onClick={() => setActiveTab('contatos')}
               className={`font-semibold text-sm tracking-tight h-10 sm:h-16 flex items-center border-b-2 transition-all shrink-0 ${
                 activeTab === 'contatos'
-                  ? 'text-indigo-600 border-indigo-600'
-                  : 'text-slate-500 hover:text-slate-800 border-transparent'
+                  ? 'text-stok-gold border-stok-gold font-bold'
+                  : 'text-slate-300 hover:text-[#f4f6f5] border-transparent'
               }`}
             >
               Clientes & Fornecedores
@@ -293,8 +324,8 @@ export default function App() {
               onClick={() => setActiveTab('historico')}
               className={`font-semibold text-sm tracking-tight h-10 sm:h-16 flex items-center border-b-2 transition-all shrink-0 ${
                 activeTab === 'historico'
-                  ? 'text-indigo-600 border-indigo-600'
-                  : 'text-slate-500 hover:text-slate-800 border-transparent'
+                  ? 'text-stok-gold border-stok-gold font-bold'
+                  : 'text-slate-300 hover:text-[#f4f6f5] border-transparent'
               }`}
             >
               Lançamentos
@@ -306,21 +337,21 @@ export default function App() {
             <button
               id="btn-reset-db"
               onClick={handleResetDados}
-              className="flex items-center space-x-1.5 text-slate-500 hover:text-indigo-600 text-xs font-semibold py-1.5 px-2.5 rounded-lg hover:bg-slate-50 transition-colors"
+              className="flex items-center space-x-1.5 text-slate-300 hover:text-stok-gold text-xs font-semibold py-1.5 px-2.5 rounded-lg hover:bg-white/5 transition-colors"
               title="Redefinir banco de dados para os valores padrão"
             >
               <RefreshCw className="h-3.5 w-3.5" />
               <span>Redefinir Dados</span>
             </button>
 
-            <div className="h-4 w-[1px] bg-slate-200"></div>
+            <div className="h-4 w-[1px] bg-stok-dark-light"></div>
 
             <div className="flex items-center gap-4">
-              <div className="relative cursor-pointer hover:text-slate-600 transition-colors">
-                <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
-                <Bell className="w-5 h-5 text-slate-400 hover:text-slate-500" />
+              <div className="relative cursor-pointer">
+                <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-stok-dark"></span>
+                <Bell className="w-5 h-5 text-slate-300 hover:text-white transition-colors" />
               </div>
-              <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center border border-slate-200 font-semibold text-slate-600 text-sm shadow-2xs">
+              <div className="w-10 h-10 bg-stok-dark-light rounded-full flex items-center justify-center border border-stok-gold/25 font-semibold text-[#f4f6f5] text-sm shadow-xs">
                 JD
               </div>
             </div>

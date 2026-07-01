@@ -217,9 +217,9 @@ export default function Inventory({
             resetNovoForm();
             setShowAddModal(true);
           }}
-          className="flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs px-4 py-2.5 rounded-lg shadow-sm transition-all"
+          className="flex items-center space-x-2 bg-stok-dark hover:bg-[#343e39] text-[#f4f6f5] border border-stok-gold/30 font-semibold text-xs px-4 py-2.5 rounded-lg shadow-sm transition-all"
         >
-          <Plus className="h-4 w-4" />
+          <Plus className="h-4 w-4 text-stok-gold" />
           <span>Cadastrar Novo Produto</span>
         </button>
       </div>
@@ -236,7 +236,7 @@ export default function Inventory({
             placeholder="Buscar por nome ou SKU..."
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+            className="w-full pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-stok-gold/20 focus:border-stok-gold"
           />
         </div>
 
@@ -248,7 +248,7 @@ export default function Inventory({
               id="filter-inv-category"
               value={categoriaSelecionada}
               onChange={(e) => setCategoriaSelecionada(e.target.value)}
-              className="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-indigo-500"
+              className="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-stok-gold"
             >
               <option value="">Todas Categorias</option>
               {categorias.map(cat => (
@@ -379,7 +379,7 @@ export default function Inventory({
                           <button
                             id={`btn-mov-${p.id}`}
                             onClick={() => handleOpenMov(p)}
-                            className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold px-2.5 py-1.5 rounded-lg transition-colors flex items-center space-x-1"
+                            className="bg-stok-gold-light hover:bg-[#f3eae0] text-stok-gold font-bold px-2.5 py-1.5 rounded-lg transition-colors flex items-center space-x-1"
                             title="Lançar entrada/saída"
                           >
                             <SlidersHorizontal className="h-3.5 w-3.5" />
@@ -541,7 +541,7 @@ export default function Inventory({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs"
+                  className="px-4 py-2 text-xs font-semibold text-stok-dark bg-stok-gold hover:bg-stok-gold-hover rounded-lg shadow-xs"
                 >
                   Cadastrar Produto
                 </button>
@@ -669,7 +669,7 @@ export default function Inventory({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs"
+                  className="px-4 py-2 text-xs font-semibold text-stok-dark bg-stok-gold hover:bg-stok-gold-hover rounded-lg shadow-xs"
                 >
                   Salvar Alterações
                 </button>
@@ -686,7 +686,7 @@ export default function Inventory({
             <div className="flex items-center justify-between p-5 border-b border-slate-100">
               <div>
                 <h3 className="text-sm font-bold text-slate-800">Lançar Entrada / Saída de Estoque</h3>
-                <p className="text-[10px] text-indigo-600 font-semibold mt-0.5">{selectedProduct.nome} (Estoque Atual: {selectedProduct.estoqueAtual})</p>
+                <p className="text-[10px] text-stok-gold font-bold mt-0.5">{selectedProduct.nome} (Estoque Atual: {selectedProduct.estoqueAtual})</p>
               </div>
               <button onClick={() => setShowMovModal(false)} className="text-slate-400 hover:text-slate-600">
                 <X className="h-5 w-5" />

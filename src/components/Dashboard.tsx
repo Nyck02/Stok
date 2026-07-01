@@ -302,7 +302,7 @@ export default function Dashboard({
       }
     });
 
-    const CORES = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4'];
+    const CORES = ['#9e8b75', '#56645e', '#8c7a68', '#6b7d75', '#bda893', '#414f48'];
 
     return Object.entries(categoriasVendas).map(([name, value], idx) => ({
       name,
@@ -316,7 +316,7 @@ export default function Dashboard({
       {/* Barra de Filtros Rápidos (Requisito 8) */}
       <div id="filter-bar" className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center space-x-2 text-slate-700">
-          <Calendar className="h-5 w-5 text-indigo-600" />
+          <Calendar className="h-5 w-5 text-stok-gold" />
           <span className="font-semibold text-sm">Filtros de Relatório:</span>
         </div>
 
@@ -326,9 +326,9 @@ export default function Dashboard({
             <button
               id="filter-period-7d"
               onClick={() => setFiltroPeriodo('7d')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                 filtroPeriodo === '7d' 
-                  ? 'bg-white text-indigo-600 shadow-xs' 
+                  ? 'bg-stok-dark text-stok-gold shadow-xs' 
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -337,9 +337,9 @@ export default function Dashboard({
             <button
               id="filter-period-30d"
               onClick={() => setFiltroPeriodo('30d')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                 filtroPeriodo === '30d' 
-                  ? 'bg-white text-indigo-600 shadow-xs' 
+                  ? 'bg-stok-dark text-stok-gold shadow-xs' 
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -348,9 +348,9 @@ export default function Dashboard({
             <button
               id="filter-period-90d"
               onClick={() => setFiltroPeriodo('90d')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                 filtroPeriodo === '90d' 
-                  ? 'bg-white text-indigo-600 shadow-xs' 
+                  ? 'bg-stok-dark text-stok-gold shadow-xs' 
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -359,9 +359,9 @@ export default function Dashboard({
             <button
               id="filter-period-tudo"
               onClick={() => setFiltroPeriodo('tudo')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                 filtroPeriodo === 'tudo' 
-                  ? 'bg-white text-indigo-600 shadow-xs' 
+                  ? 'bg-stok-dark text-stok-gold shadow-xs' 
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -370,9 +370,9 @@ export default function Dashboard({
             <button
               id="filter-period-custom"
               onClick={() => setFiltroPeriodo('custom')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                 filtroPeriodo === 'custom' 
-                  ? 'bg-white text-indigo-600 shadow-xs' 
+                  ? 'bg-stok-dark text-stok-gold shadow-xs' 
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -387,7 +387,7 @@ export default function Dashboard({
               id="filter-category"
               value={filtroCategoria}
               onChange={(e) => setFiltroCategoria(e.target.value)}
-              className="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-stok-gold focus:border-stok-gold"
             >
               <option value="">Todas Categorias</option>
               {categorias.map(cat => (
@@ -403,7 +403,7 @@ export default function Dashboard({
               id="filter-product"
               value={filtroProduto}
               onChange={(e) => setFiltroProduto(e.target.value)}
-              className="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 max-w-[200px] focus:ring-indigo-500 focus:border-indigo-500"
+              className="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 max-w-[200px] focus:ring-stok-gold focus:border-stok-gold"
             >
               <option value="">Todos Produtos</option>
               {produtos.map(p => (
@@ -421,7 +421,7 @@ export default function Dashboard({
                 setFiltroCategoria('');
                 setFiltroProduto('');
               }}
-              className="text-xs text-indigo-600 hover:text-indigo-800 font-medium"
+              className="text-xs text-stok-gold hover:text-stok-gold-hover font-bold"
             >
               Limpar Filtros
             </button>
@@ -492,7 +492,7 @@ export default function Dashboard({
               Faturamento Bruto
             </span>
           </div>
-          <div className="bg-indigo-50 p-3 rounded-xl text-indigo-600">
+          <div className="bg-stok-gold-light p-3 rounded-xl text-stok-gold">
             <DollarSign className="h-6 w-6" />
           </div>
         </div>
@@ -571,9 +571,9 @@ export default function Dashboard({
                   contentStyle={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '12px' }}
                 />
                 <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '10px' }} />
-                <Bar dataKey="Receita" fill="#6366f1" radius={[4, 4, 0, 0]} name="Receita" />
-                <Bar dataKey="Despesas" fill="#f43f5e" radius={[4, 4, 0, 0]} name="Despesas" />
-                <Bar dataKey="Lucro" fill="#10b981" radius={[4, 4, 0, 0]} name="Lucro Líquido" />
+                <Bar dataKey="Receita" fill="#9e8b75" radius={[4, 4, 0, 0]} name="Receita" />
+                <Bar dataKey="Despesas" fill="#c85a53" radius={[4, 4, 0, 0]} name="Despesas" />
+                <Bar dataKey="Lucro" fill="#56645e" radius={[4, 4, 0, 0]} name="Lucro Líquido" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -599,8 +599,8 @@ export default function Dashboard({
                 >
                   <defs>
                      <linearGradient id="colorVendas" x1="0" y1="0" x2="0" y2="1">
-                       <stop offset="5%" stopColor="#6366f1" stopOpacity={0.15}/>
-                       <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                       <stop offset="5%" stopColor="#9e8b75" stopOpacity={0.15}/>
+                       <stop offset="95%" stopColor="#9e8b75" stopOpacity={0}/>
                      </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
@@ -610,7 +610,7 @@ export default function Dashboard({
                     formatter={(value: any) => [formatBRL(Number(value)), 'Vendas']}
                     contentStyle={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '12px' }}
                   />
-                  <Area type="monotone" dataKey="Vendas" stroke="#6366f1" strokeWidth={2} fillOpacity={1} fill="url(#colorVendas)" />
+                  <Area type="monotone" dataKey="Vendas" stroke="#9e8b75" strokeWidth={2} fillOpacity={1} fill="url(#colorVendas)" />
                 </AreaChart>
               </ResponsiveContainer>
             ) : (
@@ -663,7 +663,7 @@ export default function Dashboard({
                   </div>
                   <div className="text-right">
                     <span className="text-xs font-bold text-slate-700 block">{cli.pedidos} pedidos</span>
-                    <span className="text-[10px] text-indigo-600 font-bold block">Total: {formatBRL(cli.totalGasto)}</span>
+                    <span className="text-[10px] text-stok-gold font-bold block">Total: {formatBRL(cli.totalGasto)}</span>
                   </div>
                 </div>
               ))}
@@ -679,13 +679,13 @@ export default function Dashboard({
         <div id="ranking-best-sellers" className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
           <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100">
             <div className="flex items-center space-x-2">
-              <ShoppingBag className="h-5 w-5 text-indigo-500" />
+              <ShoppingBag className="h-5 w-5 text-stok-gold" />
               <div>
                 <h3 className="text-sm font-semibold text-slate-800">Itens Mais Vendidos</h3>
                 <p className="text-xs text-slate-500">Ranking baseado em unidades comercializadas</p>
               </div>
             </div>
-            <span className="text-[10px] font-bold uppercase bg-indigo-50 text-indigo-700 px-2 py-1 rounded">
+            <span className="text-[10px] font-bold uppercase bg-stok-gold-light text-stok-gold px-2 py-1 rounded">
               TOP 5 Itens
             </span>
           </div>
@@ -696,9 +696,9 @@ export default function Dashboard({
                 <div key={item.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
                   <div className="flex items-center space-x-3">
                     <div className={`h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                      index === 0 ? 'bg-indigo-100 text-indigo-700' :
-                      index === 1 ? 'bg-purple-100 text-purple-700' :
-                      index === 2 ? 'bg-sky-100 text-sky-700' :
+                      index === 0 ? 'bg-stok-gold-light text-stok-gold border border-stok-gold/20' :
+                      index === 1 ? 'bg-stok-sage-light text-stok-sage border border-stok-sage/10' :
+                      index === 2 ? 'bg-slate-100 text-slate-700' :
                       'bg-slate-50 text-slate-600'
                     }`}>
                       #{index + 1}
@@ -706,7 +706,7 @@ export default function Dashboard({
                     <div>
                       <h4 className="text-xs font-semibold text-slate-800">{item.nome}</h4>
                       <div className="flex space-x-2 mt-0.5">
-                        <span className="text-[10px] text-indigo-600 font-semibold">{item.categoria}</span>
+                        <span className="text-[10px] text-stok-gold font-semibold">{item.categoria}</span>
                         <span className="text-[10px] text-slate-400">•</span>
                         <span className="text-[10px] text-slate-400 font-mono">SKU: {item.sku}</span>
                       </div>
@@ -714,7 +714,7 @@ export default function Dashboard({
                   </div>
                   <div className="text-right">
                     <span className="text-xs font-bold text-slate-700 block">{item.quantidadeVendida} un.</span>
-                    <span className="text-[10px] text-emerald-600 font-semibold block">Gerado: {formatBRL(item.receita)}</span>
+                    <span className="text-[10px] text-[#56645e] font-semibold block">Gerado: {formatBRL(item.receita)}</span>
                   </div>
                 </div>
               ))}
@@ -773,7 +773,7 @@ export default function Dashboard({
                     </div>
                     <div className="text-right">
                       <span className="text-xs font-bold text-slate-700 mr-2">{formatBRL(item.value)}</span>
-                      <span className="text-[10px] text-indigo-600 font-bold bg-indigo-50 px-1.5 py-0.5 rounded">{percent}%</span>
+                      <span className="text-[10px] text-stok-gold font-bold bg-stok-gold-light px-1.5 py-0.5 rounded">{percent}%</span>
                     </div>
                   </div>
                 );

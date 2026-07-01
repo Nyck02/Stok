@@ -110,7 +110,7 @@ export default function Movements({
           <h2 className="text-lg font-bold text-slate-800">Histórico de Movimentações</h2>
           <p className="text-xs text-slate-500">Audite e analise todo o fluxo de entrada e saída de produtos</p>
         </div>
-        <div className="bg-indigo-50 p-3 rounded-xl text-indigo-600">
+        <div className="bg-stok-gold-light p-3 rounded-xl text-stok-gold border border-stok-gold/15">
           <Clock className="h-6 w-6" />
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function Movements({
       {/* Seção Multifiltros (Filtro Requisito 8) */}
       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
         <div className="flex items-center space-x-2 pb-2 border-b border-slate-100">
-          <Filter className="h-4 w-4 text-indigo-600" />
+          <Filter className="h-4 w-4 text-stok-gold" />
           <h3 className="text-xs font-bold text-slate-700">Filtros Rápidos e Avançados</h3>
         </div>
 
@@ -134,7 +134,7 @@ export default function Movements({
               placeholder="Produto ou SKU..."
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg text-xs text-slate-700 focus:ring-2 focus:ring-indigo-500/20"
+              className="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-stok-gold/20 focus:border-stok-gold"
             />
           </div>
 
@@ -144,7 +144,7 @@ export default function Movements({
               id="history-filter-type"
               value={tipoFiltro}
               onChange={(e) => setTipoFiltro(e.target.value as any)}
-              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-indigo-500"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-stok-gold focus:border-stok-gold focus:outline-none"
             >
               <option value="todos">Todos os Tipos</option>
               <option value="entrada">Apenas Entradas (+)</option>
@@ -158,7 +158,7 @@ export default function Movements({
               id="history-filter-motif"
               value={motivoFiltro}
               onChange={(e) => setMotivoFiltro(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-indigo-500"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-stok-gold focus:border-stok-gold focus:outline-none"
             >
               <option value="">Todos os Motivos</option>
               <option value="Compra">Compra / Reposição</option>
@@ -174,7 +174,7 @@ export default function Movements({
               id="history-filter-category"
               value={categoriaFiltro}
               onChange={(e) => setCategoriaFiltro(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-indigo-500"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-stok-gold focus:border-stok-gold focus:outline-none"
             >
               <option value="">Todas Categorias</option>
               {categorias.map(cat => (
@@ -189,7 +189,7 @@ export default function Movements({
               id="history-filter-period"
               value={periodoFiltro}
               onChange={(e) => setPeriodoFiltro(e.target.value as any)}
-              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-indigo-500"
+              className="w-full bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 focus:ring-stok-gold focus:border-stok-gold focus:outline-none"
             >
               <option value="tudo">Qualquer Período</option>
               <option value="7d">Últimos 7 dias</option>
@@ -212,7 +212,7 @@ export default function Movements({
                 setCategoriaFiltro('');
                 setPeriodoFiltro('tudo');
               }}
-              className="text-xs text-indigo-600 hover:text-indigo-800 font-semibold"
+              className="text-xs text-stok-gold hover:text-stok-gold-hover font-semibold"
             >
               Limpar Todos os Filtros
             </button>
@@ -246,14 +246,14 @@ export default function Movements({
                   let vinculoNome = '-';
                   let vinculoIcon = null;
 
-                  if (mov.tipo === 'saida' && mov.clienteId) {
+                    if (mov.tipo === 'saida' && mov.clienteId) {
                     const cli = clientes.find(c => c.id === mov.clienteId);
                     vinculoNome = cli ? cli.nome : 'Cliente Desconhecido';
-                    vinculoIcon = <User className="h-3.5 w-3.5 text-indigo-400 mr-1.5 shrink-0" />;
+                    vinculoIcon = <User className="h-3.5 w-3.5 text-stok-gold/70 mr-1.5 shrink-0" />;
                   } else if (mov.tipo === 'entrada' && mov.fornecedorId) {
                     const forn = fornecedores.find(f => f.id === mov.fornecedorId);
                     vinculoNome = forn ? forn.nome : 'Fornecedor Desconhecido';
-                    vinculoIcon = <Truck className="h-3.5 w-3.5 text-emerald-400 mr-1.5 shrink-0" />;
+                    vinculoIcon = <Truck className="h-3.5 w-3.5 text-stok-sage/70 mr-1.5 shrink-0" />;
                   }
 
                   const total = mov.quantidade * mov.valorUnitario;
@@ -288,8 +288,8 @@ export default function Movements({
                       {/* Motivo */}
                       <td className="p-4">
                         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium ${
-                          mov.motivo === 'Venda' ? 'bg-indigo-50 text-indigo-700 border border-indigo-100' :
-                          mov.motivo === 'Compra' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' :
+                          mov.motivo === 'Venda' ? 'bg-stok-gold-light text-stok-gold border border-stok-gold/20' :
+                          mov.motivo === 'Compra' ? 'bg-stok-sage-light text-stok-sage border border-stok-sage/20' :
                           mov.motivo === 'Devolução' ? 'bg-sky-50 text-sky-700 border border-sky-100' :
                           'bg-amber-50 text-amber-700 border border-amber-100'
                         }`}>
@@ -323,7 +323,7 @@ export default function Movements({
                               onEstornarMovimentacao(mov.id);
                             }
                           }}
-                          className="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors inline-flex"
+                          className="p-1.5 text-slate-400 hover:text-stok-gold hover:bg-stok-gold-light rounded-lg transition-colors inline-flex"
                           title="Estornar movimentação"
                         >
                           <Undo2 className="h-3.5 w-3.5" />
