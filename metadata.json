@@ -1,0 +1,6 @@
+{
+  "name": "Gerenciador de Estoque",
+  "description": "Sistema de controle de estoque com cadastro de contatos, registro de entradas e saídas, indicadores financeiros de receitas e despesas, alertas automáticos e relatórios com gráficos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
