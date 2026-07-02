@@ -30,10 +30,10 @@ import {
 } from 'lucide-react';
 
 export function StokLogo({ className = "w-8 h-8", alt = 'STOK logo' }: { className?: string; alt?: string }) {
-  // Usa imagem estática em `assets/logo.png` para facilitar substituição
+  // Usa imagem estática em `public/logo.png` (copiada para raiz de dist)
   return (
     <img
-      src="/Stok/assets/logo.png"
+      src="/Stok/logo.png"
       alt={alt}
       className={className + ' object-contain'}
       id="stok-logo-img"
