@@ -29,33 +29,15 @@ import {
   Bell
 } from 'lucide-react';
 
-export function StokLogo({ className = "w-8 h-8", strokeColor = "currentColor", strokeWidth = 2.5 }: { className?: string; strokeColor?: string; strokeWidth?: number }) {
+export function StokLogo({ className = "w-8 h-8", alt = 'STOK logo' }: { className?: string; alt?: string }) {
+  // Usa imagem estática em `assets/logo.png` para facilitar substituição
   return (
-    <svg 
-      viewBox="0 0 100 100" 
-      className={className}
-      fill="none" 
-      stroke={strokeColor} 
-      strokeWidth={strokeWidth} 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-      id="stok-logo-svg"
-    >
-      {/* Left outer wall */}
-      <path d="M 12,28 L 12,68 L 38,84" />
-      {/* Top-left flap pointing up-left */}
-      <path d="M 38,42 L 26,20 L 46,12 L 58,30 M 58,30 L 38,42" />
-      {/* Front-left vertical standing flap */}
-      <path d="M 22,40 L 22,84 L 38,84 M 38,42 L 38,84" />
-      {/* Bottom-right flap lying down flat (tray) */}
-      <path d="M 38,84 L 62,96 L 94,80 L 72,68" />
-      {/* Back-right vertical wall line */}
-      <path d="M 72,23 L 72,68" />
-      {/* Back-right flap standing up-right */}
-      <path d="M 72,23 L 88,13 L 88,61 L 72,68" />
-      {/* Inside perspective depth line */}
-      <path d="M 38,50 L 72,68" strokeWidth={strokeWidth * 0.8} opacity={0.7} />
-    </svg>
+    <img
+      src="/Stok/assets/logo.png"
+      alt={alt}
+      className={className + ' object-contain'}
+      id="stok-logo-img"
+    />
   );
 }
 
